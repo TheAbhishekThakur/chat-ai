@@ -15,15 +15,27 @@ import useChatStream from "../../hooks/useChatStream";
 import ChatContainer from "./style";
 import { useThemeStore } from "../../store/themeStore";
 
+/**
+ * Chat Component
+ *
+ * This component provides the chat interface where users can interact with an AI.
+ * It includes message display, AI response streaming, input handling, and a loading indicator.
+ */
+
 const Chat: React.FC = () => {
+  // Get the current theme from Zustand store
   const { theme } = useThemeStore();
 
+  // State to store user input
   const [input, setInput] = useState<string>("");
 
+  // Reference to automatically scroll to the latest message
   const msgEnd = useRef<HTMLDivElement>(null);
 
+  // Fetch AI response and manage chat messages
   const { messages, loading, fetchAIResponse } = useChatStream();
 
+  // Auto-scroll to the bottom of the chat whenever messages change
   useEffect(() => {
     msgEnd.current?.scrollIntoView();
   }, [messages]);
