@@ -10,6 +10,12 @@ const NavbarContainer = styled(Box)(({ theme }) => ({
   "& .icon-section": {
     display: "flex",
     gap: "10px",
+
+    svg: {
+      border: `1px solid ${theme.palette.mode === "light" ? "#000" : "gray"}`,
+      borderRadius: "12px",
+      padding: "4px",
+    },
   },
 }));
 

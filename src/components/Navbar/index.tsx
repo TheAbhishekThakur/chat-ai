@@ -29,7 +29,7 @@ const leftIconsActiveStyle = {
 const Navbar: React.FC = () => {
   const { theme, setTheme } = useThemeStore();
 
-  const toggleTheme = (value: Theme) => {
+  const toggleTheme = (value: Theme): void => {
     setTheme(value);
   };
 

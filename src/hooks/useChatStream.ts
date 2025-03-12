@@ -10,7 +10,7 @@ interface Message {
 
 const useChatStream = () => {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchAIResponse = async (input: string) => {
     try {
@@ -40,7 +40,7 @@ const useChatStream = () => {
         return;
       }
 
-      let accumulatedMessage = "";
+      let accumulatedMessage: string = "";
       const createdTimestamp = Date.now() / 1000;
 
       // Add an initial empty AI message with timestamp
